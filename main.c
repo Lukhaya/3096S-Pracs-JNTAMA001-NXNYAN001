@@ -109,7 +109,9 @@ int main(void)
 //  writeLCD('Started');
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  char adcValueString[20];
+
+  //Will store the adc string value
+  char adcStringValue[20];
   while (1)
   {
 	// Toggle LED0
@@ -117,10 +119,11 @@ int main(void)
 
 	// ADC to LCD; TODO: Read POT1 value and write to LCD
 
-
+	//Gets uint32 adc value from pollADC method
 	adc_val = pollADC();
-	sprintf(adcValueString,"Adc value : %u",adc_val);
-	writeLCD(adcValueString);
+
+	sprintf(adcStringValue,"%u",adc_val);
+	writeLCD(adcStringValue);
 
 
 	// Update PWM value; TODO: Get CRR
